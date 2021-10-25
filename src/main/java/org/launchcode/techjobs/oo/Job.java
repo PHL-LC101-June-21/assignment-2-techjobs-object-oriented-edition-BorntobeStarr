@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import java.security.PublicKey;
 import java.util.Objects;
 
 public class Job {
@@ -17,9 +18,114 @@ public class Job {
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
 
+        public Job(){
+            id = nextId;
+            nextId++;
+        }
+
+        public Job (String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
+            this();
+            this.name = name;
+            this.employer = employer;
+            this.location = location;
+            this.positionType = positionType;
+            this.coreCompetency = coreCompetency;
+        }
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+            @Override
+            public boolean equals(Object o){
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                Job job = (Job) o;
+                return id == job.id;
+            }
+
+            @Override
+            public String toString() {
+                if (name.equals("")){
+                    name = "Data not available";
+                }
+                if (employer.getValue().equals("") || employer.getValue() == null){
+                    employer.setValue("Data not available");
+                }
+                if (location.getValue().equals("") || location.getValue() == null){
+                    location.setValue("Data not available");
+                }
+                if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+                    coreCompetency.setValue("Data not available");
+                }
+                if (positionType.getValue().equals("") || positionType.getValue() == null){
+                    positionType.setValue("Data not available");
+                }
+
+                return "\nId: " + id +
+                        "\nName: " + name +
+                        "\nEmployer: " + employer +
+                        "\nLocation: " + location +
+                        "\nPositionType: " + positionType +
+                        "\nCoreCompetency: " + coreCompetency +
+                        '\n';
+            }
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    @Override
+    public int hashCode() {
+            return Objects.hash(id);
+//        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Employer getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public PositionType getPositionType() {
+        return positionType;
+    }
+
+    public void setPositionType(PositionType positionType) {
+        this.positionType = positionType;
+    }
+
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
+    }
+
+    public void setCoreCompetency(CoreCompetency coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
+
+
 }

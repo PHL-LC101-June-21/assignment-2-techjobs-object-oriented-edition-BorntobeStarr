@@ -61,12 +61,12 @@ public class Job {
                     positionType.setValue("Data not available");
                 }
 
-                return "\nId: " + id +
+                return "\nID: " + id +
                         "\nName: " + name +
                         "\nEmployer: " + employer +
                         "\nLocation: " + location +
-                        "\nPositionType: " + positionType +
-                        "\nCoreCompetency: " + coreCompetency +
+                        "\nPosition Type: " + positionType +
+                        "\nCore Competency: " + coreCompetency +
                         '\n';
             }
 

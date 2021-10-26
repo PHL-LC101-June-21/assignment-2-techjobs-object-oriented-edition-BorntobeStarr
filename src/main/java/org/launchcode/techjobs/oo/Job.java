@@ -14,8 +14,6 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-
-
         public Job(){
             id = nextId;
             nextId++;
@@ -29,8 +27,6 @@ public class Job {
             this.positionType = positionType;
             this.coreCompetency = coreCompetency;
         }
-
-
 
             @Override
             public boolean equals(Object o){
@@ -68,11 +64,9 @@ public class Job {
             }
 
 
-
     @Override
     public int hashCode() {
             return Objects.hash(id);
-//        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
     }
 
     public int getId() {

@@ -8,33 +8,21 @@ public abstract class JobField {
     private static int nextId = 1;
     private String value;
 
-    // Constructors in common:
         public JobField (){
             id = nextId;
             nextId++;
         }
 
-    // Getters & Setters in common: get id & Value +  set value
-
-    public String getValue(){
-            return value;
-    }
-
-    public int getId(){
-            return id;
-    }
-
-    public void setValue(String value){
-            this.value = value;
-    }
-
-    // Custom methods in common: equals(), toString(), hashCode()
 
     public JobField (String value) {
         this();
         this.value=value;
     }
 
+    @Override
+    public String toString(){
+            return value;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,4 +37,16 @@ public abstract class JobField {
     }
 
 
+                //getters and setters
+                public String getValue(){
+                    return value;
+                }
+
+                public int getId(){
+                    return id;
+                }
+
+                public void setValue(String value){
+                    this.value = value;
+                }
 }
